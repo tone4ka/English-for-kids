@@ -1,0 +1,486 @@
+$green : #2ecc71;
+$orange : #ffb13b;
+
+*{
+	margin : 0;
+	padding : 0;
+}
+
+html{
+  min-height: 100% !important;
+}
+
+body{
+	font-family : Economica;
+	background : #eee;
+  transition : all .5s;
+  color : #111;
+  min-height: 100% !important;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content{
+	max-width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(222, 184, 135, 0.205);
+}
+
+/*--------------HEADER----------------------------------*/
+
+header{
+  font-size: 28px;
+	font-weight: 600;
+	letter-spacing: 1px;
+  height: 10vh;
+	.content{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		background-color: rgba(222, 184, 135, 0.3) ;
+		.menu_btnF{
+			display: block;
+			opacity: 0;
+			width: 40px;
+			height: 40px;
+		}
+		.menu_btn{
+			position: fixed;
+			left: 500px;
+			display: flex;
+			align-items: center;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			z-index: 3;
+			span{
+				position: relative;
+				height: 5px;
+				width: 100%;
+				background-color:  rgba(255, 255, 255, 0.9);
+				border-radius: 2px;
+				transition: all .5s;
+			}
+			span::before,
+			span::after {
+				content: " ";
+				position: absolute;
+				top: -10px;
+				left: 0;
+				width: 100%;
+				height: 5px;
+				border-radius: 2px;
+				background-color:  rgba(255, 255, 255, 0.9);
+				transition: all .2s;
+			}
+			span::before {
+				top: -10px;
+			}
+			span::after {
+				top: 10px;
+			}
+		}
+		.menu_btn:hover{
+			width: 50px;
+			height: 50px;
+			span{
+				left:-4px!important;
+				height: 5px;
+			}
+		}
+		.activeJS{
+			span{
+				background-color: rgba(255, 255, 255, 0);
+				transition: all .2s;
+			}
+			span::before{
+				transform: rotate(-45deg);
+				top: 0;
+				transition: all .2s;
+			}
+			span::after{
+				transform: rotate(45deg);
+				top: 0;
+				transition: all .2s;
+			}
+		}
+	}
+}
+
+/*---------navigation-------------------------------*/
+header .nav{
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: -100%;
+	align-items: center;
+	transition: .8s;
+	z-index: 1;
+	ul {
+	display: flex;
+	list-style:none;
+	height: 100vh;
+	width: 40%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	background: linear-gradient(to top, #fefcea, 25%, $green);
+	z-index: 2;
+	transition: all .2s;
+	li{
+		display: flex;
+		width: 60%;
+		justify-content: space-between;
+		align-items: center;
+		margin: 5px 0;
+		cursor: pointer;
+		border-radius: 10px;
+		border: 2px solid rgba(255, 255, 255, 0);
+	  }
+	li:hover{
+		cursor: pointer;
+		box-shadow : 0px 5px 10px rgba(0,0,0,.3);
+		border: 2px solid rgba(255, 255, 255, 0.39);
+	}
+	.li .navIcon{
+		display: flex;
+		border: 3px solid rgb(252, 240, 133);
+		border-radius: 12px;
+		box-shadow: 0 0 3px #27231e;
+	  }
+	}
+}
+
+.dimmedJS{
+	background : linear-gradient(to top, #fefcea, 25%, $orange) !important;
+}
+
+
+/*-----------SWITCHER-----------------------------------*/
+
+header{
+	.switcher{
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+	.switcher-line{
+		background : white;
+		  position : relative;
+		  top : 3px;
+		  border-radius : 5px;
+		  margin : 0px 5px;
+		  height : 15px;
+		  width : 100px;
+		  display : inline-block;
+		  background : linear-gradient(to bottom, #bbb, #ddd);
+		}
+	}
+	.switcherButton{
+		width : 50px;
+		position : absolute;
+		outline : none;
+		top : -20px;
+		left : 0px;
+		background : #52cc85ee;
+		height : 50px;
+		border : 3px solid $green;
+		border-radius : 50%;
+		transition : all .5s;
+		box-shadow : 0px 5px 10px rgba(0,0,0,.3);
+	}
+	.switcherButton:hover{
+		cursor: pointer;
+		opacity: 0.9;
+		box-shadow : 8px 20px 15px rgba(0, 0, 0, 0.418);
+	}
+	.toggled{
+	left : 51px;
+	background : $orange;
+	border-color : $orange;
+	}
+}
+
+/*--------------MAIN----------*/
+
+.main{
+	.content{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+    justify-content: space-around;
+    min-height: 80vh;
+    position: relative;
+		.starBox{
+			overflow: hidden;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+      height: 40px;
+      padding: 3px;
+			width: 100%;
+			.star{
+				height: 40px;
+				width: 40px;
+			}
+		}
+		.winnerImgBox{
+      height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      // align-items: center;
+      font-size: 28px;
+      font-weight: 600;
+			.imgOfEndGame{
+				border-radius: 40px;
+				box-shadow : 0px 5px 10px rgba(0,0,0,.3);
+			}
+		}
+		.cardBox{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+			.cardJS{
+				display: flex;
+				position: relative;
+        width: 250px;
+        height: 250px;
+        margin: 15px;
+				perspective: 2000px;
+        border-radius: 10px;
+        font-size: 28px;
+        font-weight: 600;
+				.cardFront,
+				.cardBack{
+					display: flex;
+					width: 100%;
+					height: 100%;
+					flex-direction: column;
+					position: absolute;
+					top: 0;
+					left: 0;
+					backface-visibility: hidden;
+					transition: 1s;
+					box-shadow : 0px 5px 10px rgba(0,0,0,.3);
+					background: linear-gradient(to top, #fefcea, 25%, $green);
+					border-radius: 10px;
+					overflow: hidden;
+
+				}
+				.cardFront{
+				  .imgFront {
+            height: 193px;
+            width: 250px;
+					}
+					.bottomOfFrontCard{
+						display: flex;
+						flex-direction: row;
+						justify-content: center;
+						align-items: center;
+						height: 22%;
+            width: 100%;
+						position: relative;
+						p{
+							margin-bottom: 20px;
+							display: block;
+              text-align: center;
+						}
+						.rotate{
+							position: absolute;
+							margin-right: -190px;
+							height: 30px;
+							width: 30px;
+							opacity: .5;
+						}
+						.rotate:hover{
+							opacity: 1;
+							cursor: pointer;
+
+						}
+					}
+				}
+				.opacityCard{
+					opacity: .3;
+				}
+				.cardBack{
+					transform: rotateY(180deg);
+					img {
+            height: 193px;
+            width: 250px;
+					}
+					p{
+						display: block;
+            text-align: center;
+					}
+
+				}
+			}
+				.cardJS>div:hover{
+					box-shadow : 8px 20px 15px rgba(0, 0, 0, 0.438);
+					cursor: pointer;
+				}
+			.cardJS:active{
+				box-shadow : 3px 8px 8px rgba(0,0,0,.3);
+			}
+			.rotatedFront{
+				transform: rotateY(180deg);
+			}
+			.rotatedBack{
+				transform: rotateY(360deg)!important;
+			}
+			.playCard:first-child{
+				.bottomOfFrontCard{
+					display: none;
+				}
+			}
+
+			.categoryCard{
+					display: flex;
+					width: 100%;
+					height: 100%;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					position: absolute;
+					top: 0;
+					left: 0;
+					box-shadow : 0px 5px 10px rgba(0,0,0,.3);
+					background: linear-gradient(to top, #fefcea, 25%, $green);
+					border-radius: 10px;
+				.imgFront {
+          height: 170px;
+          width: 220px;
+          margin: 11px 14px 10px 14px;
+					border-radius: 20px;
+				}
+					p{
+						margin-top: 10px;
+						display: block;
+						text-align: center;
+					}
+			}
+		  }
+		.startBtnBox{
+			height: 100px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+      align-items: center;
+
+      font-weight: 600;
+		.start-btn{
+				display: none;
+				padding: 10px 20px;
+				cursor: pointer;
+				background-color: $orange;
+				outline: none;
+				border: 1px solid rgb(255, 255, 255);
+				border-radius: 10px;
+				box-shadow : 0px 5px 10px rgba(0,0,0,.3);
+        // font-size: 2.2vh;
+        font-size: 20px;
+				font-weight: 600;
+				letter-spacing: 1px;
+				font-family : Economica;
+				transition: 0.5s;
+			}
+			.start-btn:hover{
+				box-shadow : 0px 5px 10px 5px rgba(0,0,0,.3);
+				background-color: #c7b342;
+
+			}
+			.start-btn:active{
+				transform: scale(0.95);
+			}
+		}
+	    }
+	}
+
+/*--------------FOOTER----------*/
+footer{
+  height: 10vh;
+	.content{
+    font-size: 15px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+    background-color: rgba(222, 184, 135, 0.3);
+      .gitLink{
+        opacity: .8;
+		text-decoration: none;
+		color: #111;
+      }
+      .gitLink:visited{
+        color: #111;
+      }
+      .gitLink:active{
+        color: #111;
+      }
+    .logo{
+      opacity: .7;
+      margin-left: 20px;
+      width: 40px;
+      height: 20px;
+    }
+	}
+}
+
+/*-------------animation------*/
+@keyframes rotateImg{
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+
+ /*---------------media-----------*/
+
+  @media all and (min-width: 2100px) {
+      header .menu_btn{
+      left: 700px!important;
+      }
+    }
+    @media all and (max-width: 1700px) {
+      header .menu_btn{
+      left: 300px!important;
+      }
+    }
+    @media all and (max-width: 1200px) {
+      header .menu_btn{
+      left: 100px!important;
+      }
+    }
+  @media all and (max-width: 800px) {
+    header .nav ul{
+      width: 70%;
+    }
+  }
+  @media all and (max-width: 650px) {
+    main .content .imgOfEndGame{
+      width: 300px !important;
+    }
+		header .menu_btn{
+      left: 30px!important;
+    }
+  }
+
+  @media all and (max-width: 430px) {
+		header .nav ul{
+			width: 90%;
+			}
+
+		main .content .imgOfEndGame{
+			width: 200px !important;
+		}
+	}
