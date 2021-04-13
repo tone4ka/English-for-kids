@@ -15,3 +15,5 @@
 ссылка на деплой https://tone4ka-js2020q3-english-for-kids.netlify.app/
 
 код проекта находится в ветке dev в папке English-for-kids/english-for-kids/src
+
+запуск проекта npm run start
